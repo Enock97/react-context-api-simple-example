@@ -17,12 +17,15 @@ export default function CreatePost() {
           ...post,
           [name]: value,
         })
+        localStorage.setItem(name, value);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         context.setPosts([...context.posts, post])
         setPost(INITIAL_POST)
+        console.log(JSON.parse("Previous post: ", localStorage.getItem("lastPost")))
+        localStorage.clear()
     }
 
     return (
