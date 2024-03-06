@@ -1,3 +1,8 @@
-export default function Header({ appName }) {
-    return <h1>{ appName }</h1>
+import { MyContext } from "../App";
+
+export default function Header() {
+
+    const context = createContext(MyContext);
+
+    return <h1>{ context.appName }</h1>
 }

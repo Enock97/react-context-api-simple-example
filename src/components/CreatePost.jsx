@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { MyContext } from "../App";
 
 const INITIAL_POST = {
     title: '',
     content: '',
 }
 
-export default function CreatePost({ posts, setPosts }) {
+export default function CreatePost() {
     const [post, setPost] = useState(INITIAL_POST)
+
+    const context = createContext(MyContext);
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -18,7 +21,7 @@ export default function CreatePost({ posts, setPosts }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setPosts([...posts, post])
+        setPosts([...context.posts, post])
         setPost(INITIAL_POST)
     }
 
