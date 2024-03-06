@@ -21,7 +21,7 @@ export default function CreatePost() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setPosts([...context.posts, post])
+        context.setPosts([...context.posts, post])
         setPost(INITIAL_POST)
     }
 
